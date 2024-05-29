@@ -1,6 +1,25 @@
-const express = require('express')
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const mongoose = require('mongoose');
 const {WebhookClient} = require('dialogflow-fulfillment');
-const app = express()
+
+
+const app = express();
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials:true
+}));
+
+app.use(express.json());
+
+mongoose.connect("mongodb://localhost:27017/chatbot").then(client => {
+  console.log('Conexión a MongoDB establecida correctamente');
+})
+.catch(error => console.error('Error al conectar a MongoDB:', error));
+
 
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -8,16 +27,14 @@ app.get('/', function (req, res) {
 
 app.post('/webhook', express.json() ,function (req, res) {
   const agent = new WebhookClient({ request:req, response:res });
-  //console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
-  //console.log('Dialogflow Request body: ' + JSON.stringify(req.body));
  
   function welcome(agent) {
-    agent.add(`Welcome to my agent!`);
+    agent.add("Welcome to my agent!");
   }
  
   function fallback(agent) {
-    agent.add(`I didn't understand`);
-    agent.add(`I'm sorry, can you try again?`);
+    agent.add("I didn't understand");
+    agent.add("I'm sorry, can you try again?");
   }
 
   function reportar(agent) {
