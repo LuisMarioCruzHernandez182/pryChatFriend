@@ -1,5 +1,7 @@
 import React from 'react'
 import img from '../assets/img-bullying.jpeg'
+import { NavLink } from 'react-router-dom'
+
 
 const Home = () => {
   return (
@@ -18,6 +20,9 @@ const Home = () => {
           </a>
           <a className="text-sm font-medium hover:underline underline-offset-4" href="#">
             Obtener Ayuda
+          </a>
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="/login">
+          <NavLink to={"/login"}/>Login<NavLink/>
           </a>
         </nav>
       </header>

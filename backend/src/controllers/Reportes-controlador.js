@@ -9,7 +9,7 @@ const algorithm = 'aes-256-cbc';
 
 const key = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
 
-const palabrasArray = ["matar", "suicidar"];
+const palabrasArray = ["matar", "suicidar", "arma", "pistola", "cuchillo", "navaja", "apuñalar", "apuñalo", "ahogar", "estrangular", "disparar", "golpes", "golpeo", "pego", "burlo", "burlaron", "golpearon"];
 
 const encrypt = (text) => {
     let iv = crypto.randomBytes(16);
@@ -80,47 +80,65 @@ const RegistrarReportes = async (req, res) => {
             const palabrasEncontradas = palabrasDescripcion.filter(palabra => palabrasArray.includes(palabra));
             if (palabrasEncontradas.length > 0) {
                 const html = `
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>Restaurar Contraseña</title>
-                            <style>
-                                body {
-                                    font-family: 'Arial', sans-serif;
-                                    background-color: #f4f4f4;
-                                    margin: 0;
-                                    padding: 0;
-                                }
-                                .container {
-                                    max-width: 600px;
-                                    margin: 20px auto;
-                                    background-color: #fff;
-                                    padding: 20px;
-                                    border-radius: 8px;
-                                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                                }
-                                h1 {
-                                    color: #333;
-                                }
-                                p {
-                                    color: #666;
-                                }
-                            </style>
-                        </head>
-                        <body>
-                            <div class="container">
-                                <h1>Caso de bullying grave</h1>
-                                <p>Caso grave de bullying que requiere atencion inmediata</p>
-                                <p>El alumno ${nombre} de la carrera ${carrera} de ${cuatrimestre}-${grupo}
-                                ha estado haciendo bullying a uno de sus compañeros.</p>
-                                <p>El repoprte es el siguiente:  
-                                    ${descripcion}.Por lo cual se requiere de intervencion inmediata.</p>
-                            </div>
-                            
-                        </body>
-                        </html>
+            <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Restaurar Contraseña</title>
+                    <style>
+                        body {
+                            font-family: 'Arial', sans-serif;
+                            background-color: #f4f4f4;
+                            margin: 0;
+                            padding: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                        }
+                        .container {
+                            max-width: 600px;
+                            margin: 20px auto;
+                            background-color: #fff;
+                            padding: 20px;
+                            border-radius: 8px;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        }
+                        h1 {
+                            color: #333;
+                            text-align: center;
+                            margin-bottom: 20px;
+                        }
+                        p {
+                            color: #666;
+                            line-height: 1.6;
+                        }
+                        .highlight {
+                            color: #d9534f;
+                            font-weight: bold;
+                        }
+                        .footer {
+                            text-align: center;
+                            margin-top: 20px;
+                            font-size: 0.9em;
+                            color: #999;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Caso de Bullying grave</h1>
+                        <p>El alumno <span class="highlight">${nombre}</span> de la carrera <span class="highlight">${carrera}</span> del cuatrimestre <span class="highlight">${cuatrimestre}</span>-<span class="highlight">${grupo}</span> ha estado haciendo bullying a uno de sus compañeros.</p>
+                        <p>El reporte es el siguiente:</p>
+                        <p><span class="highlight">${descripcion}</span></p>
+                        <p>Por lo cual se requiere de intervención inmediata.</p>
+                        <div class="footer">
+                            <p>&copy; 2024 ChatFriend</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
              `
                 const correo = "20221045@uthh.edu.mx"
                 enviarCorreo(correo, "Caso de bullying", html);
