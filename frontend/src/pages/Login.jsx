@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import img from '../assets/img-bullying.jpeg'
+import { useAuth } from '../context/auth-context'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const {loginAdmin}=useAuth();
+  const [data,setData]=useState({
+    correo: "",
+    password: ""
+  })
+
+  const navigate=useNavigate();
+
+  const onSubmit= async (e)=> {
+    e.preventDefault()
+    const res= await loginAdmin(data);
+    if(res){
+      navigate("/reportes")
+
+    }
+
+    
+    console.log(data)
+  }
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -27,7 +48,7 @@ const Login = () => {
               <h1 className="text-2xl font-bold text-center mb-6" style={{ color: '#42A5F5' }}>
                 Iniciar Sesión
               </h1>
-              <form>
+              <form onSubmit={onSubmit}>
                 <div className="mb-4">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Correo Electrónico
@@ -37,6 +58,7 @@ const Login = () => {
                     id="email"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     required
+                    onChange={e=>setData({...data,correo:e.target.value})}
                   />
                 </div>
                 <div className="mb-6">
@@ -48,6 +70,7 @@ const Login = () => {
                     id="password"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     required
+                    onChange={e=>setData({...data,password:e.target.value})}
                   />
                 </div>
                 <div className="flex items-center justify-between">
