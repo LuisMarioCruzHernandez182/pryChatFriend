@@ -4,7 +4,7 @@ import { useAuth } from '../context/auth-context'
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const {loginAdmin}=useAuth();
+  const {loginAdmin,error}=useAuth();
   const [data,setData]=useState({
     correo: "",
     password: ""
@@ -17,7 +17,6 @@ const Login = () => {
     const res= await loginAdmin(data);
     if(res){
       navigate("/reportes")
-
     }
 
     
@@ -30,6 +29,9 @@ const Login = () => {
           <span className="sr-only" style={{ color: '#42A5F5' }}>Detener el Bullying</span>
         </a>
         <nav className="ml-auto flex gap-4 sm:gap-6">
+        <a className="text-sm font-medium hover:underline underline-offset-4" href="/">
+            Inicio
+          </a>
           <a className="text-sm font-medium hover:underline underline-offset-4" href="#">
             Tipos de Bullying
           </a>
@@ -73,15 +75,11 @@ const Login = () => {
                     onChange={e=>setData({...data,password:e.target.value})}
                   />
                 </div>
-                <div className="flex items-center justify-between">
-                  <a
-                    href="#"
-                    className="text-sm text-blue-500 hover:underline"
-                    style={{ color: '#42A5F5' }}
-                  >
-                    ¿Olvidaste tu contraseña?
-                  </a>
-                </div>
+                {
+                  error.length >0&&(
+                    <p className='text-red-600 text-center'>{error}</p>
+                  )
+                }
                 <button
                   type="submit"
                   className="mt-4 w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white"
@@ -90,19 +88,13 @@ const Login = () => {
                   Iniciar Sesión
                 </button>
               </form>
-              <p className="mt-6 text-center text-gray-500">
-                ¿No tienes una cuenta?{' '}
-                <a href="#" className="text-blue-500 hover:underline" style={{ color: '#42A5F5' }}>
-                  Regístrate
-                </a>
-              </p>
             </div>
           </div>
         </section>
       </main>
       <footer className="flex items-center justify-center p-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          &copy; 2024 Detener el Bullying. Todos los derechos reservados.
+          &copy; 2024 ChatFriend. Todos los derechos reservados.
         </p>
       </footer>
     </div>

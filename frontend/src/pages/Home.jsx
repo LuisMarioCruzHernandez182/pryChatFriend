@@ -228,7 +228,7 @@ const Home = () => {
       </main>
       <footer className="flex items-center justify-center p-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          &copy; 2024 Detener el Bullying. Todos los derechos reservados.
+          &copy; 2024 ChatFriend. Todos los derechos reservados.
         </p>
       </footer>
     </div>
