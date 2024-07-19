@@ -32,13 +32,13 @@ const Login = () => {
         <a className="text-sm font-medium hover:underline underline-offset-4" href="/">
             Inicio
           </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="/tipos">
             Tipos de Bullying
           </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="/impacto">
             Impacto
           </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="/ayuda">
             Obtener Ayuda
           </a>
         </nav>

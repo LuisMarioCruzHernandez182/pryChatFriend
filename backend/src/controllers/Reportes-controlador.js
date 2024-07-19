@@ -1,15 +1,24 @@
 const Accesos = require("../models/Reportes-modelos");
+const Grafica = require("../models/Grafica");
 const { WebhookClient } = require('dialogflow-fulfillment');
 const crypto = require('crypto');
+const errorHandler = require("../middleware/handleErrors");
+
 require('dotenv').config();
 
 const nodemailer = require("nodemailer");
+const { clearScreenDown } = require("readline");
 
 const algorithm = 'aes-256-cbc';
 
 const key = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
 
 const palabrasArray = ["matar", "suicidar", "arma", "pistola", "cuchillo", "navaja", "apuñalar", "apuñalo", "ahogar", "estrangular", "disparar", "golpes", "golpeo", "pego", "burlo", "burlaron", "golpearon"];
+
+const fisico = ["golpeo", "golpearon", "empujo", "empujaron", "tiro", "tirar", "lanzo", "lanzar"];
+const verbal = ["insulto", "grito", "llamo", "llamaron", "groserias"];
+const social = ["excluyo", "aisle", "ignoro", "margino", "rechazo", "aislamiento", "burlas", "burla", "separado"];
+const ciberbullying = ["mensajes", "línea", "redes", "difamación", "ciberacoso", , "digitales", "virtual"];
 
 const encrypt = (text) => {
     let iv = crypto.randomBytes(16);
@@ -33,6 +42,20 @@ const decrypt = (iv, encryptedText) => {
 }
 
 const RegistrarReportes = async (req, res) => {
+    const ahora = new Date();
+    const mes = ahora.getMonth();
+    const ano = ahora.getFullYear();
+    const anoSiguiente = mes === 11 ? ano + 1 : ano;
+    const { des } = req.body;
+    const nombresMeses = [
+        'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+        'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+    ];
+
+    const nombreMes = nombresMeses[mes];
+    const resultado = `${nombreMes.toUpperCase()} ${anoSiguiente}`;
+
+
     try {
         const agent = new WebhookClient({ request: req, response: res });
 
@@ -51,7 +74,89 @@ const RegistrarReportes = async (req, res) => {
             const grupo = agent.parameters.grupo;
             const carrera = agent.parameters.carrera;
             const descripcion = agent.parameters.descripcion;
+            const desArray = descripcion.split(" ");
+            const graficaDates = () => {
+                desArray.map(item => {
+                    fisico.map(async (fis) => {
+                        if (item == fis) {
+                            const res = await Grafica.find({ fecha: resultado });
+                            if (res.length > 0) {
+                                const graficaFound = await Grafica.findOneAndUpdate({ fecha: resultado }, { fisico: res[0].fisico + 1 });
+                                return graficaFound;
+                            } else {
+                                const nuevaGrafica = new Grafica({
+                                    fecha: resultado,
+                                    fisico: 1,
+                                    verbal: 0,
+                                    social: 0,
+                                    ciberbullying: 0,
+                                })
+                                return await nuevaGrafica.save();
+                            }
 
+                        }
+                    })
+
+                    verbal.map(async (verb) => {
+                        if (item == verb) {
+                            const res = await Grafica.find({ fecha: resultado });
+                            if (res.length > 0) {
+                                const graficaFound = await Grafica.findOneAndUpdate({ fecha: resultado }, { verbal: res[0].verbal + 1 });
+                                return graficaFound;
+                            } else {
+                                const nuevaGrafica = new Grafica({
+                                    fecha: resultado,
+                                    fisico: 0,
+                                    verbal: 1,
+                                    social: 0,
+                                    ciberbullying: 0,
+                                })
+                                return await nuevaGrafica.save();
+                            }
+
+                        }
+                    })
+                    social.map(async (soscialItem) => {
+                        if (item == soscialItem) {
+                            const res = await Grafica.find({ fecha: resultado });
+                            if (res.length > 0) {
+                                const graficaFound = await Grafica.findOneAndUpdate({ fecha: resultado }, { social: res[0].social + 1 });
+                                return graficaFound;
+                            } else {
+                                const nuevaGrafica = new Grafica({
+                                    fecha: resultado,
+                                    fisico: 0,
+                                    verbal: 0,
+                                    social: 1,
+                                    ciberbullying: 0,
+                                })
+                                return await nuevaGrafica.save();
+                            }
+
+                        }
+                    })
+                    ciberbullying.map(async (ciber) => {
+                        if (item == ciber) {
+                            const res = await Grafica.find({ fecha: resultado });
+                            if (res.length > 0) {
+                                const graficaFound = await Grafica.findOneAndUpdate({ fecha: resultado }, { ciberbullying: res[0].ciberbullying + 1 });
+                                return graficaFound;
+                            } else {
+                                const nuevaGrafica = new Grafica({
+                                    fecha: resultado,
+                                    fisico: 0,
+                                    verbal: 0,
+                                    social: 0,
+                                    ciberbullying: 1,
+                                })
+                                return await nuevaGrafica.save();
+                            }
+
+                        }
+                    })
+                });
+            };
+            graficaDates();
             const { iv: ivNombre, encryptedData: encryptedNombre } = encrypt(nombre);
             const { iv: ivCuatrimestre, encryptedData: encryptedCuatrimestre } = encrypt(cuatrimestre);
             const { iv: ivGrupo, encryptedData: encryptedGrupo } = encrypt(grupo);
@@ -73,7 +178,7 @@ const RegistrarReportes = async (req, res) => {
             });
 
             reporte.save();
-            
+
             const desMin = descripcion.toLowerCase();
             const palabrasDescripcion = desMin.split(/\s+/);
 
@@ -226,12 +331,25 @@ const enviarCorreo = (correo, subject, html) => {
     });
 }
 
-
-
-
-
+const getGraficaDatos = async (req, res, next) => {
+    const { fecha } = req.body;
+    try {
+        const datos = await Grafica.findOne({ fecha });
+        if (!datos) return next(errorHandler(404, `No se cuenta con reportes en el mes de ${fecha}`));
+        const resultados = [
+            { tipo: 'Acoso físico', numero: datos.fisico },
+            { tipo: 'Acoso verbal', numero: datos.verbal },
+            { tipo: 'Acoso social', numero: datos.social },
+            { tipo: 'Ciberbullying', numero: datos.ciberbullying },
+        ]
+        return res.json(resultados);
+    } catch (error) {
+        next(error);
+    }
+}
 
 module.exports = {
     RegistrarReportes,
-    Reportes
+    Reportes,
+    getGraficaDatos
 };
