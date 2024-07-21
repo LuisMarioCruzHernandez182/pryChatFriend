@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import img from '../assets/img-bullying.jpeg'
-import { NavLink } from 'react-router-dom'
-import BullyingChart from '../components/Grafica';
-import { datosGrafica } from '../api/auth';
+import React, { useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import img1 from '../assets/img-bullying.jpeg';
+import img2 from '../assets/img-bullying2.jpeg';
+import img3 from '../assets/img-bullying3.jpeg';
 
 const Home = () => {
-  
+  const videos = [
+    'https://www.youtube.com/embed/{watch?v=PbCFVJ4Eo2w&ab_channel=UniversitatRoviraiVirgili}',
+    'https://www.youtube.com/embed/2',
+    'https://www.youtube.com/embed/3',
+    'https://www.youtube.com/embed/4',
+  ];
 
-  
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -35,91 +40,51 @@ const Home = () => {
             <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
               <div>
                 <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]" style={{ color: '#42A5F5' }}>
-                  Detén el Bullying Ahora
+                  Detén el bullying ahora
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                   El bullying puede tener efectos devastadores en individuos y comunidades. Aprende sobre los diferentes tipos
                   de bullying, su impacto y cómo obtener ayuda.
                 </p>
-
-                <div className="space-x-4 mt-6">
-                  <a
-                    className="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:text-gray-50"
-                    style={{ backgroundColor: '#42A5F5', color: '#FFFFFF' }}
-                    href="#"
-                  >
-                    Aprende Más
-                  </a>
-                </div>
               </div>
               <div className="flex flex-col items-start space-y-4">
-                <img
-                  alt="Imagen Principal"
-                  className="mx-auto aspect-[4/3] overflow-hidden rounded-t-xl object-cover"
-                  height="400"
-                  src={img}
-                  width="550"
-                />
+                <Carousel showArrows={true} showThumbs={false} infiniteLoop={true} autoPlay={true} className="w-full">
+                  <div>
+                    <img src={img1} alt="Imagen 1" />
+                  </div>
+                  <div>
+                    <img src={img2} alt="Imagen 2" />
+                  </div>
+                  <div>
+                    <img src={img3} alt="Imagen 3" />
+                  </div>
+                </Carousel>
               </div>
             </div>
           </div>
         </section>
 
-        
-        <section className="w-full py-12 md:py-24 lg:py-32" style={{ backgroundColor: '#BBDEFB' }}>
-          <div className="container space-y-12 px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg px-3 py-1 text-sm" style={{ backgroundColor: '#BBDEFB', color: '#42A5F5' }}>
-                  Impacto del Bullying
+        <section className="w-full py-12 md:py-24">
+          <div className="px-4 md:px-6 max-w-[1300px] mx-auto">
+            <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl xl:text-[2.8rem]" style={{ color: '#42A5F5' }}>
+              Videos informativos
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-6">
+              {videos.map((video, index) => (
+                <div key={index} className="aspect-w-16 aspect-h-9">
+                  <iframe
+                    className="w-full h-full"
+                    src={video}
+                    title={`Video ${index + 1}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Los Efectos Devastadores del Bullying</h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  El bullying puede tener consecuencias duraderas y de gran alcance tanto para la víctima como para la comunidad en general. Es importante entender el impacto del bullying para abordar este problema de manera efectiva.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Impactos en la Salud Mental</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  El bullying puede llevar a depresión, ansiedad, baja autoestima y, en casos graves, pensamientos suicidas.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Impactos en la Salud Física</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Las víctimas de bullying pueden experimentar síntomas físicos como dolores de cabeza, dolores de estómago y alteraciones del sueño.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Impactos Académicos y Sociales</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  El bullying puede afectar negativamente el rendimiento académico y las relaciones sociales de un estudiante, llevando al aislamiento y la desconexión.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Efectos a Largo Plazo</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Los efectos del bullying pueden durar hasta la edad adulta, impactando las relaciones, la carrera y la salud mental.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Impacto en los Testigos</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Aquellos que son testigos de bullying también pueden experimentar miedo, angustia y sentimientos de impotencia.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Impacto en la Comunidad</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  El bullying puede contribuir a un ambiente escolar y comunitario tóxico, afectando la cohesión y el sentido de seguridad.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
-       
       </main>
       <footer className="flex items-center justify-center p-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -127,7 +92,7 @@ const Home = () => {
         </p>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

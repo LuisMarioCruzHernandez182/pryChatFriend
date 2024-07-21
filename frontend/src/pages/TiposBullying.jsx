@@ -56,10 +56,10 @@ const TiposBullying = () => {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg px-3 py-1 text-sm" style={{ backgroundColor: '#BBDEFB', color: '#42A5F5' }}>
-                  Tipos de Bullying
+                  Tipos de bullying
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Reconociendo las Diferentes Formas de Bullying
+                  Reconociendo las diferentes formas de bullying
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                   El bullying puede tomar muchas formas, desde abuso físico y verbal hasta exclusión social y ciberbullying.
@@ -69,19 +69,19 @@ const TiposBullying = () => {
             </div>
             <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Bullying Físico</h3>
+                <h3 className="text-lg font-bold">Bullying físico</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Esto incluye golpear, patear, empujar o cualquier otra forma de agresión física.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Bullying Verbal</h3>
+                <h3 className="text-lg font-bold">Bullying verbal</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Esto implica insultos, burlas, amenazas y otras formas de abuso verbal.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Bullying Social</h3>
+                <h3 className="text-lg font-bold">Bullying social</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Esto incluye la exclusión, difusión de rumores y manipulación de relaciones sociales.
                 </p>
@@ -94,13 +94,13 @@ const TiposBullying = () => {
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Bullying Relacional</h3>
+                <h3 className="text-lg font-bold">Bullying relacional</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Esto incluye manipulación de relaciones, difusión de rumores y exclusión social.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Bullying Prejudicial</h3>
+                <h3 className="text-lg font-bold">Bullying prejudicial</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Esto implica atacar a individuos basándose en su raza, religión, género u otras características personales.
                 </p>

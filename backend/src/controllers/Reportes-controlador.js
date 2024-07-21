@@ -251,10 +251,14 @@ const RegistrarReportes = async (req, res) => {
 
             agent.add(`¡Gracias por reportar! Hemos registrado el reporte de ${nombre}.`);
         }
+        function restartConversation(agent) {
+            agent.end("La conversación ha terminado. Si necesitas más ayuda, vuelve a iniciar una nueva conversación.");
+          }
 
         let intentMap = new Map();
         intentMap.set('Default Welcome Intent', welcome);
         intentMap.set('Default Fallback Intent', fallback);
+        intentMap.set('Despedida', restartConversation);
         intentMap.set('Reportes', reportar);
         agent.handleRequest(intentMap);
 

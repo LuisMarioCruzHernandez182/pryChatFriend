@@ -33,10 +33,10 @@ function Ayuda() {
             <div className="flex flex-col items-center justificar-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg" style={{ backgroundColor: '#BBDEFB', color: '#42A5F5' }}>
-                  Obtener Ayuda
+                  Obtener ayuda
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Cómo Obtener Ayuda y Apoyo
+                  Cómo obtener ayuda y apoyo
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                   Si tú o alguien que conoces está experimentando bullying, hay recursos y estrategias disponibles para obtener ayuda y apoyo. Nadie debería enfrentar el bullying solo.
@@ -45,37 +45,37 @@ function Ayuda() {
             </div>
             <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Habla con Alguien de Confianza</h3>
+                <h3 className="text-lg font-bold">Habla con alguien de confianza</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Habla con un padre, maestro o consejero sobre lo que estás experimentando. Ellos pueden ofrecer apoyo y orientación.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Utiliza Recursos en Línea</h3>
+                <h3 className="text-lg font-bold">Utiliza recursos en línea</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Hay muchas organizaciones en línea que ofrecen recursos y asistencia para quienes están siendo acosados.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Participa en Grupos de Apoyo</h3>
+                <h3 className="text-lg font-bold">Participa en grupos de apoyo</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Unirse a un grupo de apoyo puede proporcionar un espacio seguro para compartir experiencias y obtener consejos de otros que han pasado por lo mismo.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Practica la Autocuidado</h3>
+                <h3 className="text-lg font-bold">Practica el autocuidado</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Asegúrate de cuidar de tu bienestar físico y mental a través del ejercicio, una alimentación saludable y técnicas de relajación.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Defiende a Otros</h3>
+                <h3 className="text-lg font-bold">Defiende a otros</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Si ves que alguien está siendo acosado, ofrécele tu apoyo. A veces, una palabra amable puede marcar una gran diferencia.
                 </p>
               </div>
               <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Denuncia el Bullying</h3>
+                <h3 className="text-lg font-bold">Denuncia el bullying</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Si eres testigo de bullying, repórtalo a las autoridades escolares o a los adultos responsables. Ellos pueden intervenir para detenerlo.
                 </p>
