@@ -15,10 +15,40 @@ const key = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
 
 const palabrasArray = ["matar", "suicidar", "arma", "pistola", "cuchillo", "navaja", "apuñalar", "apuñalo", "ahogar", "estrangular", "disparar", "golpes", "golpeo", "pego", "burlo", "burlaron", "golpearon"];
 
-const fisico = ["golpeo", "golpearon", "empujo", "empujaron", "tiro", "tirar", "lanzo", "lanzar"];
-const verbal = ["insulto", "grito", "llamo", "llamaron", "groserias"];
-const social = ["excluyo", "aisle", "ignoro", "margino", "rechazo", "aislamiento", "burlas", "burla", "separado"];
-const ciberbullying = ["mensajes", "línea", "redes", "difamación", "ciberacoso", , "digitales", "virtual"];
+
+const fisico = [
+    "golpeo", "golpearon", "golpearonme", "me golpearon", "me golpeo", "golpearon a", "empujo", "empujaron", 
+    "me empujo", "me empujaron", "tiro", "tirar", "me tiraron", "me tiró", "me lanzó", "me lanzo", "lanzo", 
+    "apuñalar", "apuñalo", "me apuñalo", "me apuñalaron", "estrangular", "me estrangularon", "estrangulado", 
+    "me estrangularon", "herir", "me hirió", "heridas", "herido", "me hirieron", "lastimar", "me lastimaron", 
+    "lastimaron", "me hicieron daño", "me agredieron", "me pegaron", "me patearon", "patearon"
+];
+
+const verbal = [
+    "insulto", "insultó", "me insultó", "me insultaron", "insultaron", "insultándome", "grito", "gritó", 
+    "me gritó", "me gritaron", "gritándome", "llamo", "me llamo", "me llamaron", "me dijeron", "groserías", 
+    "groserias", "me dijeron groserías", "me dijeron cosas", "me amenazaron", "amenazar", "amenaza", "amenazó", 
+    "me amenazó", "me amenazaron", "humillar", "me humillaron", "humillaron", "humillándome", "me denigraron", 
+    "denigrar", "denigraron", "denigrándome", "me menospreciaron", "me ofendieron", "ofender", "me ofendió", 
+    "ofendieron"
+];
+
+const social = [
+    "excluyo", "me excluyo", "me excluyeron", "excluyeron", "aisle", "me aisle", "me aislaron", "aislamiento", 
+    "aislaron", "me ignoro", "ignoro", "me ignoraron", "ignoraron", "margino", "me marginaron", "marginaron", 
+    "rechazo", "me rechazo", "me rechazaron", "rechazaron", "aislamiento", "me aislaron", "burlas", "burla", 
+    "se burlaron", "me hicieron burla", "me hostigaron", "hostigar", "hostigaron", "me intimidaron", "intimidar", 
+    "intimidaron", "me apartaron", "me dejaron de lado", "me dejaron sola", "me dejaron solo", "me separaron", 
+    "separaron", "me hicieron el vacío", "me hicieron sentir mal", "me dejaron afuera"
+];
+
+const ciberbullying = [
+    "mensajes", "me enviaron mensajes", "me mandaron mensajes", "línea", "en línea", "por internet", "redes", 
+    "en redes sociales", "me acosaron en redes", "difamación", "me difamaron", "ciberacoso", "me acosaron", 
+    "acoso digital", "digitales", "acoso en línea", "virtual", "acoso virtual", "humillación", "me humillaron en línea", 
+    "humillaron en redes", "difundir", "difundieron", "me difamaron", "publicar", "publicaron sobre mí", 
+    "me expusieron", "me expusieron en redes", "exponer", "me atacaron en internet", "me hicieron cyberbullying"
+];
 
 const encrypt = (text) => {
     let iv = crypto.randomBytes(16);

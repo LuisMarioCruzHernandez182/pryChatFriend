@@ -4,6 +4,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import img1 from '../assets/img-bullying.jpeg';
 import img2 from '../assets/img-bullying2.jpeg';
 import img3 from '../assets/img-bullying3.jpeg';
+import img4 from '../assets/img-bullying4.jpeg';
 
 const Home = () => {
   const videos = [
@@ -20,16 +21,16 @@ const Home = () => {
           <span className="sr-only" style={{ color: '#42A5F5' }}>Detener el Bullying</span>
         </a>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="/tipos">
+          <a className="text-sm font-medium hover:underline underline-offset-4 text-black" href="/tipos">
             Tipos de Bullying
           </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="/impacto">
+          <a className="text-sm font-medium hover:underline underline-offset-4 text-black" href="/impacto">
             Impacto
           </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="/ayuda">
+          <a className="text-sm font-medium hover:underline underline-offset-4 text-black" href="/ayuda">
             Obtener Ayuda
           </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="/login">
+          <a className="text-sm font-medium hover:underline underline-offset-4 text-black" href="/login">
             Login
           </a>
         </nav>
@@ -42,7 +43,7 @@ const Home = () => {
                 <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]" style={{ color: '#42A5F5' }}>
                   Detén el bullying ahora
                 </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                <p className="mx-auto max-w-[700px] text-black md:text-xl">
                   El bullying puede tener efectos devastadores en individuos y comunidades. Aprende sobre los diferentes tipos
                   de bullying, su impacto y cómo obtener ayuda.
                 </p>
@@ -57,6 +58,9 @@ const Home = () => {
                   </div>
                   <div>
                     <img src={img3} alt="Imagen 3" />
+                  </div>
+                  <div>
+                    <img src={img4} alt="Imagen 4" />
                   </div>
                 </Carousel>
               </div>
@@ -87,7 +91,7 @@ const Home = () => {
         </section>
       </main>
       <footer className="flex items-center justify-center p-4">
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-black">
           &copy; 2024 ChatFriend. Todos los derechos reservados.
         </p>
       </footer>
