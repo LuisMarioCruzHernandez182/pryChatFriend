@@ -1,27 +1,26 @@
-import React, { useState } from 'react'
-import img from '../assets/img-bullying.jpeg'
-import { useAuth } from '../context/auth-context'
+import React, { useState } from 'react';
+import { useAuth } from '../context/auth-context';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const {loginAdmin,error}=useAuth();
-  const [data,setData]=useState({
+  const { loginAdmin, error } = useAuth();
+  const [data, setData] = useState({
     correo: "",
     password: ""
-  })
+  });
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
-  const onSubmit= async (e)=> {
-    e.preventDefault()
-    const res= await loginAdmin(data);
-    if(res){
-      navigate("/reportes")
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const res = await loginAdmin(data);
+    if (res) {
+      navigate("/reportes");
     }
 
-    
-    console.log(data)
-  }
+    console.log(data);
+  };
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -29,7 +28,7 @@ const Login = () => {
           <span className="sr-only" style={{ color: '#42A5F5' }}>Detener el Bullying</span>
         </a>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-        <a className="text-sm font-medium hover:underline underline-offset-4" href="/">
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="/">
             Inicio
           </a>
           <a className="text-sm font-medium hover:underline underline-offset-4" href="/tipos">
@@ -44,7 +43,7 @@ const Login = () => {
         </nav>
       </header>
       <main className="flex-1 flex items-center justify-center">
-        <section className="w-full pt-12 md:pt-24 lg:pt-32 border-y">
+        <section className="w-full pt-8 md:pt-16 lg:pt-24 border-y">
           <div className="px-4 md:px-6 space-y-10 xl:space-y-16">
             <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
               <h1 className="text-2xl font-bold text-center mb-6" style={{ color: '#42A5F5' }}>
@@ -60,7 +59,7 @@ const Login = () => {
                     id="email"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     required
-                    onChange={e=>setData({...data,correo:e.target.value})}
+                    onChange={e => setData({ ...data, correo: e.target.value })}
                   />
                 </div>
                 <div className="mb-6">
@@ -72,11 +71,11 @@ const Login = () => {
                     id="password"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     required
-                    onChange={e=>setData({...data,password:e.target.value})}
+                    onChange={e => setData({ ...data, password: e.target.value })}
                   />
                 </div>
                 {
-                  error.length >0&&(
+                  error.length > 0 && (
                     <p className='text-red-600 text-center'>{error}</p>
                   )
                 }
@@ -98,7 +97,7 @@ const Login = () => {
         </p>
       </footer>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

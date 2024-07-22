@@ -13,41 +13,29 @@ const algorithm = 'aes-256-cbc';
 
 const key = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
 
-const palabrasArray = ["matar", "suicidar", "arma", "pistola", "cuchillo", "navaja", "apuñalar", "apuñalo", "ahogar", "estrangular", "disparar", "golpes", "golpeo", "pego", "burlo", "burlaron", "golpearon"];
+const palabrasArray = ["matar", "suicidar", "arma", "pistola", "cuchillo", "navaja", "apuñalar", "apuñalo", "ahogar", "estrangular", "disparar", "golpes", "golpeo", "pego", "burlo", "burlaron", "golpearon", "difamaron", "armas", "cuchillos", "navajas"];
 
 
 const fisico = [
-    "golpeo", "golpearon", "golpearonme", "me golpearon", "me golpeo", "golpearon a", "empujo", "empujaron", 
-    "me empujo", "me empujaron", "tiro", "tirar", "me tiraron", "me tiró", "me lanzó", "me lanzo", "lanzo", 
-    "apuñalar", "apuñalo", "me apuñalo", "me apuñalaron", "estrangular", "me estrangularon", "estrangulado", 
-    "me estrangularon", "herir", "me hirió", "heridas", "herido", "me hirieron", "lastimar", "me lastimaron", 
-    "lastimaron", "me hicieron daño", "me agredieron", "me pegaron", "me patearon", "patearon"
+    "golpeo", "golpearon", "empujo", "empujaron", "tiro", "tirar", "tiraron", "tiró", "lanzó", "lanzaron", "lanzo", 
+    "apuñalar", "apuñalo", "apuñalo", "apuñalaron", "estrangular", "estrangularon", "estrangulado", "herir", "heridas", "herido", "lastimar", 
+    "lastimaron", "daño", "agredieron", "pegaron", "patearon", "lastimo", "pateo", "hirio"
 ];
 
 const verbal = [
-    "insulto", "insultó", "me insultó", "me insultaron", "insultaron", "insultándome", "grito", "gritó", 
-    "me gritó", "me gritaron", "gritándome", "llamo", "me llamo", "me llamaron", "me dijeron", "groserías", 
-    "groserias", "me dijeron groserías", "me dijeron cosas", "me amenazaron", "amenazar", "amenaza", "amenazó", 
-    "me amenazó", "me amenazaron", "humillar", "me humillaron", "humillaron", "humillándome", "me denigraron", 
-    "denigrar", "denigraron", "denigrándome", "me menospreciaron", "me ofendieron", "ofender", "me ofendió", 
-    "ofendieron"
+    "insulto", "insultó",  "insultaron", "insultándome", "grito", "gritó", "gritaron", "gritándome", "llamo", "llamaron", "dijeron", "groserías", 
+    "groseria", "amenazaron", "amenazar", "amenaza", "amenazó", "amenazo", "amenazaron", "humillar", "humillaron",  "humillandome", "denigraron", 
+    "denigrar", "denigraron", "denigrándome", "menospreciaron", "ofendieron", "ofender", "ofendió", "ofendio", "ofendieron"
 ];
 
 const social = [
-    "excluyo", "me excluyo", "me excluyeron", "excluyeron", "aisle", "me aisle", "me aislaron", "aislamiento", 
-    "aislaron", "me ignoro", "ignoro", "me ignoraron", "ignoraron", "margino", "me marginaron", "marginaron", 
-    "rechazo", "me rechazo", "me rechazaron", "rechazaron", "aislamiento", "me aislaron", "burlas", "burla", 
-    "se burlaron", "me hicieron burla", "me hostigaron", "hostigar", "hostigaron", "me intimidaron", "intimidar", 
-    "intimidaron", "me apartaron", "me dejaron de lado", "me dejaron sola", "me dejaron solo", "me separaron", 
-    "separaron", "me hicieron el vacío", "me hicieron sentir mal", "me dejaron afuera"
+    "excluyo", "excluyeron", "aisle", "aislaron", "aislamiento", "ignoro", "ignoraron", "margino", "rechazo", "rechazaron", "burlas", "burla", 
+    "burlaron", "hostigaron", "hostigar", "intimidar", "intimidaron", "apartaron", "dejaron", "sola", "solo", "separaron", "separaron"
 ];
 
 const ciberbullying = [
-    "mensajes", "me enviaron mensajes", "me mandaron mensajes", "línea", "en línea", "por internet", "redes", 
-    "en redes sociales", "me acosaron en redes", "difamación", "me difamaron", "ciberacoso", "me acosaron", 
-    "acoso digital", "digitales", "acoso en línea", "virtual", "acoso virtual", "humillación", "me humillaron en línea", 
-    "humillaron en redes", "difundir", "difundieron", "me difamaron", "publicar", "publicaron sobre mí", 
-    "me expusieron", "me expusieron en redes", "exponer", "me atacaron en internet", "me hicieron cyberbullying"
+    "mensajes", "línea", "internet", "redes", "sociales", "difamación", "difamaron", "ciberacoso",  "digitales", "virtual", "difundir", "difundieron", "publicar", "publicaron", 
+    "expusieron", "expuso", "exponer", "internet", "cyberbullying", "facebook", "Facebook", "instagram", "Instagram", "WhatsApp", "whatsapp", "Telegram", "telegram", "X", "x", "Twitter", "twitter"
 ];
 
 const encrypt = (text) => {

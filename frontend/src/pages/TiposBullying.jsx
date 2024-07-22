@@ -25,7 +25,7 @@ const TiposBullying = () => {
             }
         };
         getResul();
-    }, []);
+    }, [resultado]);
 
     return (
         <div className="flex flex-col min-h-[100dvh]">
@@ -51,7 +51,7 @@ const TiposBullying = () => {
                     </a>
                 </nav>
             </header>
-            <section className="w-full py-12 md:py-24 lg:py-32">
+            <section className="w-full pt-8 md:pt-16 lg:pt-24">
                 <div className="container space-y-12 px-4 md:px-6">
                     <div className="flex flex-col items-center justify-center space-y-4 text-center">
                         <div className="space-y-2">
@@ -67,7 +67,8 @@ const TiposBullying = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
+                    <div className="mx-auto grid items-start gap-8 sm:max-w-4xl md:gap-12 lg:max-w-5xl ">
+                        <div className="grid lg:grid-cols-3 sm:grid-cols-2 ">
                         <div className="grid gap-1">
                             <h3 className="text-lg font-bold text-black">Bullying físico</h3>
                             <p className="text-sm text-black">
@@ -86,25 +87,20 @@ const TiposBullying = () => {
                                 Esto incluye la exclusión, difusión de rumores y manipulación de relaciones sociales.
                             </p>
                         </div>
-                        <div className="grid gap-1">
-                            <h3 className="text-lg font-bold text-black">Ciberbullying</h3>
-                            <p className="text-sm text-black">
-                                Esto implica el uso de tecnologías digitales, como las redes sociales, para acosar, amenazar o avergonzar
-                                a alguien.
-                            </p>
                         </div>
-                        <div className="grid gap-1">
-                            <h3 className="text-lg font-bold text-black">Bullying relacional</h3>
-                            <p className="text-sm text-black">
-                                Esto incluye manipulación de relaciones, difusión de rumores y exclusión social.
-                            </p>
+                        <div className="grid lg:grid-cols-3 sm:grid-cols-2">
+                            <div className=""></div>
+                            <div className="grid gap-1">
+                                <h3 className="text-lg font-bold text-black">Ciberbullying</h3>
+                                <p className="text-sm text-black">
+                                    Esto implica el uso de tecnologías digitales, como las redes sociales, para acosar, amenazar o avergonzar
+                                    a alguien.
+                                </p>
+                            </div>
+                            <div className=""></div>
                         </div>
-                        <div className="grid gap-1">
-                            <h3 className="text-lg font-bold text-black">Bullying prejudicial</h3>
-                            <p className="text-sm text-black">
-                                Esto implica atacar a individuos basándose en su raza, religión, género u otras características personales.
-                            </p>
-                        </div>
+                        
+                        
                     </div>
                     <div>
                         {data.length > 0 && <BullyingChart data={data} />}

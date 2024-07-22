@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import img1 from '../assets/img-bullying.jpeg';
@@ -8,10 +8,10 @@ import img4 from '../assets/img-bullying4.jpeg';
 
 const Home = () => {
   const videos = [
-    'https://www.youtube.com/embed/{watch?v=PbCFVJ4Eo2w&ab_channel=UniversitatRoviraiVirgili}',
-    'https://www.youtube.com/embed/2',
-    'https://www.youtube.com/embed/3',
-    'https://www.youtube.com/embed/4',
+    'https://www.youtube.com/embed/PbCFVJ4Eo2w',
+    'https://www.youtube.com/embed/x0PjNiSQm3g',
+    'https://www.youtube.com/embed/2UFUHB7w-9c',
+    'https://www.youtube.com/embed/FHzAnNQBzA8',
   ];
 
   return (
@@ -36,7 +36,7 @@ const Home = () => {
         </nav>
       </header>
       <main className="flex-1">
-        <section className="w-full pt-12 md:pt-24 lg:pt-32 border-y">
+        <section className="w-full pt-8 md:pt-16 lg:pt-24 border-y">
           <div className="px-4 md:px-6 space-y-10 xl:space-y-16">
             <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
               <div>

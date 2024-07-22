@@ -26,11 +26,11 @@ function Ayuda() {
         </nav>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full pt-8 md:pt-16 lg:pt-24 border-y">
           <div className="container space-y-12 px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg" style={{ backgroundColor: '#BBDEFB', color: '#42A5F5' }}>
+                <div className="inline-block rounded-lg px-3 py-1 text-sm" style={{ backgroundColor: '#BBDEFB', color: '#42A5F5' }}>
                   Obtener ayuda
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-black">

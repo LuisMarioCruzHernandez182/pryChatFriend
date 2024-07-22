@@ -14,13 +14,13 @@ const BullyingChart = ({ data }) => {
     '#FF9F40', // Color para 'Prejudicial'
   ];
   const chartData = {
-    labels: data.map(item => item.tipo), // Tipos de bullying
+    labels: data.map(item => item.tipo), 
     datasets: [
       {
         label: 'Número de Incidencias',
-        data: data.map(item => item.numero), // Números de incidencias
-        backgroundColor: barColors, // Colores de las barras
-        borderColor: '#1E88E5', // Color del borde de las barras
+        data: data.map(item => item.numero),
+        backgroundColor: barColors, 
+        borderColor: '#1E88E5', 
         borderWidth: 1,
       },
     ],
@@ -30,7 +30,7 @@ const BullyingChart = ({ data }) => {
     responsive: true,
     plugins: {
       legend: {
-        display: false, // Oculta la leyenda
+        display: false, 
       },
       tooltip: {
         backgroundColor: '#333',
@@ -87,7 +87,7 @@ const BullyingChart = ({ data }) => {
   const resultado = `${nombreMes} ${anoSiguiente}`;
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-      <h2 style={{ textAlign: 'center', color: '#333' }} className='text-5xl font-bold'>Incidencias de Tipos de Bullying</h2>
+      <h2 style={{ textAlign: 'center', color: '#333' }} className='text-5xl font-bold'>Incidencias por tipo de bullying</h2>
       <Bar data={chartData} options={options} />
       <p className='uppercase text-center font-bold text-xl'>{resultado}</p>
     </div>
