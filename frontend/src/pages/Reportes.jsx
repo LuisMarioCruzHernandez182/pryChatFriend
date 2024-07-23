@@ -36,14 +36,8 @@ function Reportes() {
                     <span className="sr-only" style={{ color: '#42A5F5' }}>Detener el Bullying</span>
                 </a>
                 <nav className="ml-auto flex gap-4 sm:gap-6">
-                    <a className="text-sm font-medium hover:underline underline-offset-4" href="/tipos">
-                        Tipos de Bullying
-                    </a>
-                    <a className="text-sm font-medium hover:underline underline-offset-4" href="/impacto">
-                        Impacto
-                    </a>
-                    <a className="text-sm font-medium hover:underline underline-offset-4" href="/ayuda">
-                        Obtener Ayuda
+                    <a className="text-sm font-medium hover:underline underline-offset-4" href="/grafica">
+                        Grafica
                     </a>
                     <button className="text-sm font-medium hover:underline underline-offset-4" onClick={logout}>
                         Cerrar sesion

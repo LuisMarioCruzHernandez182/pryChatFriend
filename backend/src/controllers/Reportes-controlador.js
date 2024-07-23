@@ -18,23 +18,23 @@ const palabrasArray = ["matar", "suicidar", "arma", "pistola", "cuchillo", "nava
 
 const fisico = [
     "golpeo", "golpearon", "empujo", "empujaron", "tiro", "tirar", "tiraron", "tiró", "lanzó", "lanzaron", "lanzo", 
-    "apuñalar", "apuñalo", "apuñalo", "apuñalaron", "estrangular", "estrangularon", "estrangulado", "herir", "heridas", "herido", "lastimar", 
-    "lastimaron", "daño", "agredieron", "pegaron", "patearon", "lastimo", "pateo", "hirio"
+    "apuñalar", "apuñalo", "apuñalaron", "estrangular", "estrangularon", "estrangulado", "herir", "heridas", "herido", "lastimar", 
+    "lastimaron", "daño", "agredieron", "pegaron", "patearon", "lastimo", "pateo", "hirio", "apuñalaron"
 ];
 
 const verbal = [
     "insulto", "insultó",  "insultaron", "insultándome", "grito", "gritó", "gritaron", "gritándome", "llamo", "llamaron", "dijeron", "groserías", 
-    "groseria", "amenazaron", "amenazar", "amenaza", "amenazó", "amenazo", "amenazaron", "humillar", "humillaron",  "humillandome", "denigraron", 
-    "denigrar", "denigraron", "denigrándome", "menospreciaron", "ofendieron", "ofender", "ofendió", "ofendio", "ofendieron"
+    "groseria", "amenazaron", "amenazar", "amenaza", "amenazó", "amenaza", "humillar", "humillaron",  "humillandome", "denigraron", 
+    "denigrar", "denigraron", "denigrándome", "menospreciaron", "ofendieron", "ofender", "ofendió", "ofendio", "ofendieron", "insulto"
 ];
 
 const social = [
-    "excluyo", "excluyeron", "aisle", "aislaron", "aislamiento", "ignoro", "ignoraron", "margino", "rechazo", "rechazaron", "burlas", "burla", 
-    "burlaron", "hostigaron", "hostigar", "intimidar", "intimidaron", "apartaron", "dejaron", "sola", "solo", "separaron", "separaron"
+    "excluyo", "excluyeron", "aislo", "aislaron", "aislamiento", "ignoro", "ignoraron", "margino", "rechazo", "rechazaron", "burlas", "burla", 
+    "burlaron", "hostigaron", "hostigar", "intimidar", "intimidaron", "apartaron", "dejaron", "sola", "solo", "separaron", "separaron", "burlo"
 ];
 
 const ciberbullying = [
-    "mensajes", "línea", "internet", "redes", "sociales", "difamación", "difamaron", "ciberacoso",  "digitales", "virtual", "difundir", "difundieron", "publicar", "publicaron", 
+    "mensajes", "línea", "internet", "redes", "sociales", "difamo", "difamaron", "ciberacoso",  "digitales", "virtual", "difundir", "difundieron", "publicar", "publicaron", 
     "expusieron", "expuso", "exponer", "internet", "cyberbullying", "facebook", "Facebook", "instagram", "Instagram", "WhatsApp", "whatsapp", "Telegram", "telegram", "X", "x", "Twitter", "twitter"
 ];
 

@@ -75,7 +75,6 @@ export const Authprovider = ({children} ) => {
         setUser(null)
         setAuth(false)
     }
-    console.log(user,auth)
     return( 
         <Authcontext.Provider
         value={{

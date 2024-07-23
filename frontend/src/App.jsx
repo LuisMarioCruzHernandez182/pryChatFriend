@@ -7,6 +7,7 @@ import ProtectedRouterAdmin from "./utils/ProtectedRouter";
 import TiposBullying from "./pages/TiposBullying";
 import Impacto from "./pages/Impacto";
 import Ayuda from "./pages/Ayuda";
+import Incidencias from "./pages/Incidencias";
 
 function App() {
 
@@ -22,7 +23,8 @@ function App() {
         <Route path="/ayuda" element={<Ayuda/>} />
         
         <Route element={<ProtectedRouterAdmin/>}>
-        <Route path="/reportes" element={<Reportes/>} />
+          <Route path="/reportes" element={<Reportes/>} />
+          <Route path="/grafica" element={<Incidencias/>} />
         </Route>
       </Routes>
     </Router>
