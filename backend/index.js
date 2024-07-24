@@ -23,7 +23,7 @@ mongoose.connect("mongodb+srv://chatfriend375:gXSgc7udvJiI6RDg@cluster0.pjzm68a.
 })
 .catch(error => console.error('Error al conectar a MongoDB:', error));
 
-app.use("/reportes/",RouterReportes);
+app.use("/reportes/",RouterReportes);   
 app.use("/admin/",RouterAdmin);
 
 app.get('/', function (req, res) {
