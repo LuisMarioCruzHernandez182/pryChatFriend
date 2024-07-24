@@ -18,8 +18,8 @@ const palabrasArray = ["matar", "suicidar", "arma", "pistola", "cuchillo", "nava
 
 const fisico = [
     "golpeo", "golpearon", "empujo", "empujaron", "tiro", "tirar", "tiraron", "tiró", "lanzó", "lanzaron", "lanzo", 
-    "apuñalar", "apuñalo", "apuñalaron", "estrangular", "estrangularon", "estrangulado", "herir", "heridas", "herido", "lastimar", 
-    "lastimaron", "daño", "agredieron", "pegaron", "patearon", "lastimo", "pateo", "hirio", "apuñalaron"
+    "apuñalar", "apuñalo", "apuñalaron", "estrangular", "estrangularon", "herir", "heridas", "herido", "lastimar", 
+    "lastimaron", "daño", "agredieron", "pegaron", "patearon", "lastimo", "pateo", "hirio", "apuñalaron", "estrangulo"
 ];
 
 const verbal = [
