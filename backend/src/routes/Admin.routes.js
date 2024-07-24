@@ -8,6 +8,6 @@ const route = express.Router();
 route.post("/registrar",registrar);
 route.post("/login",login);
 route.get("/cerrarSesion",cerrarSesion);
-route.get("/verifyAuth",verifyToken);
+route.post("/verifyAuth",verifyToken);
 
 module.exports = route;

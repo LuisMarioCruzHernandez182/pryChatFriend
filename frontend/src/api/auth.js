@@ -5,7 +5,7 @@ export const login = data=>axios.post ("/admin/login", data);
 
 export const getReportesApi = () => axios.get("/reportes/reportes");
 
-export const verifyToken= ()=> axios.get("/admin/verifyAuth")
+export const verifyToken= (token)=> axios.post("/admin/verifyAuth",token);
 
 export const cerrarsesion= ()=> axios.get("/admin/cerrarSesion")
 

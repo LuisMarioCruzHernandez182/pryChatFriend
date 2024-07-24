@@ -23,7 +23,8 @@ export const Authprovider = ({children} ) => {
         try {
             const res= await login(data);
             if(res){
-                setUser(res.data)
+                localStorage.setItem("token",res.data.token)
+                setUser(res.data.rest);
                 setAuth(true)
                 return res.data;
             }
@@ -39,15 +40,14 @@ export const Authprovider = ({children} ) => {
     }
 
     const verifyAuth= async()=>{
-        const cookies= Cookies.get()
-        console.log(Cookies.get())
-        if(!cookies.token){
+        const token= localStorage.getItem("token")
+        if(!token){
             setUser(null)
             setAuth(false)
             setLoading(false)
         }
         try {
-            const res=await verifyToken()
+            const res=await verifyToken({token})
             if (res) {
                 setUser(res.data);
                 setAuth(true);
