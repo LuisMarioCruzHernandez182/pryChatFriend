@@ -4,8 +4,6 @@ const Administrador = require("../models/Admin-Modelo");
 const verifyToken = async (req, res,next) => {
 
     const { token } = req.body;
-
-    console.log(token)
   
     if (!token) return res.status(401).json({ message: "No autorizado" });
   
