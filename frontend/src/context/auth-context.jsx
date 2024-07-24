@@ -71,7 +71,7 @@ export const Authprovider = ({children} ) => {
     },[])
 
     const logout=()=>{
-        Cookies.remove("token")
+        localStorage.removeItem("token")
         setUser(null)
         setAuth(false)
     }
