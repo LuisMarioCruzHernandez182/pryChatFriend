@@ -18,7 +18,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect("mongodb://localhost:27017/chatbot").then(client => {
+mongoose.connect("mongodb+srv://chatfriend375:gXSgc7udvJiI6RDg@cluster0.pjzm68a.mongodb.net/chatbot?retryWrites=true&w=majority&appName=Cluster0").then(client => {
   console.log('Conexión a MongoDB establecida correctamente');
 })
 .catch(error => console.error('Error al conectar a MongoDB:', error));
