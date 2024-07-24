@@ -25,7 +25,6 @@ const jwt = require("jsonwebtoken");
 };
 const login = async (req, res, next) => {
     const { correo, password } = req.body;
-    console.log(correo)
     try {
         const usuario = await Administrador.findOne({ correo });
 
@@ -40,12 +39,7 @@ const login = async (req, res, next) => {
         })
 
         const { password: pass, ...rest } = usuario._doc;
-
-        res.cookie("token", token, {
-            sameSite: "None",
-            secure: true 
-          })
-        res.json(rest);
+        res.json({rest,token});
     } catch (error) {
 
         next(error);

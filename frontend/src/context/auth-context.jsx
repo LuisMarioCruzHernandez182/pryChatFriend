@@ -40,7 +40,7 @@ export const Authprovider = ({children} ) => {
 
     const verifyAuth= async()=>{
         const cookies= Cookies.get()
-
+        console.log(Cookies.get())
         if(!cookies.token){
             setUser(null)
             setAuth(false)

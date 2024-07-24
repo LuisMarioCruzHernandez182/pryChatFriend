@@ -3,7 +3,7 @@ const Administrador = require("../models/Admin-Modelo");
 
 const verifyToken = async (req, res,next) => {
 
-    const { token } = req.cookies;
+    const { token } = req.body;
   
     if (!token) return res.status(401).json({ message: "No autorizado" });
   
