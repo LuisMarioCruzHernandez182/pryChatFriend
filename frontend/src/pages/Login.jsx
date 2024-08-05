@@ -17,8 +17,6 @@ const Login = () => {
     if (res) {
       navigate("/reportes");
     }
-
-    console.log(data);
   };
 
   return (
