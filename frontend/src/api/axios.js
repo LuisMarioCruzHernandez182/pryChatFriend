@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance= axios.create({
-    baseURL: "https://prychatfriend-1.onrender.com",
+    baseURL: "https://prychatfriend-nvxd.onrender.com",
     withCredentials: true
 })
 
