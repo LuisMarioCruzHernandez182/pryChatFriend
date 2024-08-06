@@ -4,7 +4,7 @@ import BullyingChart from '../components/Grafica';
 
 const TiposBullying = () => {
     return (
-        <div className="flex flex-col min-h-[100dvh]">
+        <div className="flex flex-col min-h-[100dvh] ">
             <header className="px-4 lg:px-6 h-14 flex items-center">
                 <a className="flex items-center justify-center" href="#">
                     <span className="sr-only" style={{ color: '#42A5F5' }}>Detener el Bullying</span>
@@ -27,8 +27,8 @@ const TiposBullying = () => {
                     </a>
                 </nav>
             </header>
-            <section className="w-full pt-8 md:pt-16 lg:pt-24">
-                <div className="container space-y-12 px-4 md:px-6">
+            <section className="w-full flex justify-center pt-8 md:pt-16 lg:pt-24">
+                <div className="container space-y-12 px-4 md:px-6 overflow-y-scroll h-full">
                     <div className="flex flex-col items-center justify-center space-y-4 text-center">
                         <div className="space-y-2">
                             <div className="inline-block rounded-lg px-3 py-1 text-sm" style={{ backgroundColor: '#BBDEFB', color: '#42A5F5' }}>
@@ -43,7 +43,7 @@ const TiposBullying = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="mx-auto grid items-start gap-8 sm:max-w-4xl md:gap-12 lg:max-w-5xl ">
+                    <div className="mx-auto grid items-start gap-0  sm:max-w-4xl md:gap-12 lg:max-w-5xl">
                         <div className="grid lg:grid-cols-3 sm:grid-cols-2 ">
                         <div className="grid gap-1">
                             <h3 className="text-lg font-bold text-black">Bullying físico</h3>
@@ -64,8 +64,8 @@ const TiposBullying = () => {
                             </p>
                         </div>
                         </div>
-                        <div className="grid lg:grid-cols-3 sm:grid-cols-2">
-                            <div className=""></div>
+                        <div className="grid lg:grid-cols-3 grid-cols-1 sm:grid-cols-2">
+                            <div className="hidden sm:grid"></div>
                             <div className="grid gap-1">
                                 <h3 className="text-lg font-bold text-black">Ciberbullying</h3>
                                 <p className="text-sm text-black">
@@ -73,16 +73,16 @@ const TiposBullying = () => {
                                     a alguien.
                                 </p>
                             </div>
-                            <div className=""></div>
+                            <div className="hidden sm:grid"></div>
                         </div>  
                     </div>
                 </div>
             </section>
-            <footer className="flex w-full fixed bottom-0 items-center justify-center p-4 bg-gray-100">
-                <p className="text-sm text-gray-500">
-                    &copy; 2024 ChatFriend. Todos los derechos reservados.
-                </p>
-    </footer>
+            <footer className="flex items-center justify-center p-4">
+        <p className="text-sm text-black">
+          &copy; 2024 ChatFriend. Todos los derechos reservados.
+        </p>
+      </footer>
         </div>
     );
 }
