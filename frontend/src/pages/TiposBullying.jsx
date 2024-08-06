@@ -26,7 +26,7 @@ const TiposBullying = () => {
                 </nav>
             </header>
             <main className="flex-1">
-                <section className="w-full pt-8 md:pt-16 lg:pt-24 border-y border-gray-200">
+                <section className="w-full pt-8 md:pt-16 flex justify-center lg:pt-24 border-y border-gray-200">
                     <div className="container space-y-12 px-4 md:px-6">
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="space-y-2">
